@@ -9,6 +9,12 @@ const saveRequest = require("./saveRequest");
 const handler = (req, res) => {
   const log = `[EXPRESS][${req.ip}] - - [${req.originalUrl}] - -`;
 
+  if (!req.body.notification.phone) {
+    winston.warn(`${log} Уведомление без номера телефона.`);
+    res.send("Phone is empty");
+    return;
+  }
+
   let notification = {
     phone: req.body.notification.phone,
     name: req.body.notification.name,

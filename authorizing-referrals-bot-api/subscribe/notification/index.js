@@ -13,11 +13,6 @@ const handler = (channel, message) => {
     winston.info(`${log} - - Бот получил запрос на отправку уведомления.`);
 
     message = JSON.parse(message);
-
-    if (!message.phone) {
-      winston.warn(`${log} - - Уведомление без номера телефона.`);
-      return;
-    }
     
     const newMessage = `Следующий реферал ожидает идентификацию:\n` +
     `${message.phone ? `Номер телефона: ${message.phone}\n` : ""}` +
