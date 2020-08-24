@@ -10,7 +10,7 @@ const handler = () => {
     "updateUser": require("./updateUser"),
     "setIntervalForWinstonsConfigs": require("./setIntervalForWinstonsConfigs"),
     "setRecipient": require("./setRecipient"),
-    "notifiсationErrors": require("./notifiсationErrors") (),
+    "notificationErrors": require("./notificationErrors"),
   };
 };
 

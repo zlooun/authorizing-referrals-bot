@@ -48,7 +48,7 @@ const handler = () => {
 								"data": `time: ${log.timestamp}`,
 							}
 
-							global.handler.notifiсationErrors(notification);
+							global.handler.notificationErrors(notification);
 							return `${log.message.slice(0, log.message.indexOf("- -") - 1)}[WARN] - - [${log.timestamp}] ${log.message.slice(log.message.indexOf("- -") + 4)}`;
 						}
 

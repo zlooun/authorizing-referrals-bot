@@ -27,10 +27,28 @@ const handler = () => {
 						}
 
 						if (log.level === "error") {
+
+							const notification = {
+								"type": "error",
+								"header": log.message.slice(log.message.indexOf("- -") + 4).match(/\[([^\[\]]*)\]/)[0],
+								"description": log.message.slice(log.message.lastIndexOf("- -") + 4),
+								"data": `time: ${log.timestamp}`,
+							}
+
+							global.handler.notificationErrors(notification);
 							return `${log.message.slice(0, log.message.indexOf("- -") - 1)}[ERROR] - - [${log.timestamp}] ${log.message.slice(log.message.indexOf("- -") + 4)}`;
 						}
 
 						if (log.level === "warn") {
+
+							const notification = {
+								"type": "warn",
+								"header": log.message.slice(log.message.indexOf("- -") + 4).match(/\[([^\[\]]*)\]/)[0],
+								"description": log.message.slice(log.message.lastIndexOf("- -") + 4),
+								"data": `time: ${log.timestamp}`,
+							}
+
+							global.handler.notificationErrors(notification);
 							return `${log.message.slice(0, log.message.indexOf("- -") - 1)}[WARN] - - [${log.timestamp}] ${log.message.slice(log.message.indexOf("- -") + 4)}`;
 						}
 

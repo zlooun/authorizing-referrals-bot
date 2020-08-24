@@ -22,7 +22,7 @@ const handler = (notification) => {
   const obj = {
     "apiKey": apiKey,
     "project": "bot",
-    "fromServices": "authorizing-referrals-bot",
+    "fromServices": "authorizing-referrals-bot-api",
     "typeServer": nodeEnv == "development" ? "test" : "production",
     notification
   };
@@ -38,4 +38,4 @@ const handler = (notification) => {
 
 
 
-module. exports = () => handler;
+module. exports = handler;

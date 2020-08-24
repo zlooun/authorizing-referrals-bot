@@ -5,7 +5,8 @@
 
 const handler = () => {
   return {
-    "setIntervalForWinstonsConfigs": require("./setIntervalForWinstonsConfigs")
+    "setIntervalForWinstonsConfigs": require("./setIntervalForWinstonsConfigs"),
+    "notificationErrors": require("./notificationErrors"),
   };
 };
 

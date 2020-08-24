@@ -15,16 +15,16 @@ const path = require("path");
 global.path = path;
 
 const mongoModels = require('./mongoModels');
+const handler = require('./handler');
 const configs = require('./configs');
 const routes = require('./routes');
-const handler = require('./handler');
 const subscribe = require("./subscribe");
 
 
+global.handler = handler();
 global.configs = configs();
 global.mongoModels = mongoModels;
 global.winston = winston;
-global.handler = handler();
 
 global.redis = new Redis(global.configs.connectInternal().redis()[0].to());
 const sub = new Redis(global.configs.connectInternal().redis()[0].to());
@@ -40,7 +40,7 @@ const log = `[EXPRESS][SYSTEM] - - [${dirname}] - -`;
 sub.subscribe("recipient", (err) => {
 
   if (err) {
-    winston.error(`${log} - - ${err}`);
+    winston.error(`${log} ${err}`);
     return;
   }
 
@@ -56,8 +56,6 @@ mongoose.connect(global.configs.connectInternal().mongo()[0].to(), { "useNewUrlP
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-
 
 
 app.use("/", routes);
