@@ -1,0 +1,14 @@
+authorizing-referrals-bot-api/node_modules
+authorizing-referrals-bot-express/node_modules
+certificates
+.idea/
+authorizing-referrals-bot-api/test.js
+authorizing-referrals-bot-api.txt
+docker-compose.yml
+example.docker-compose.yml
+.dockerignore
+authorizing-referrals-bot-express/test.js
+tasks.txt
+*.sh
+.env.example
+Dockerfile

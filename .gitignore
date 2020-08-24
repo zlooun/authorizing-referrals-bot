@@ -1,0 +1,12 @@
+verification-bot-api/node_modules
+verification-bot-express/node_modules
+.env
+certificates
+.idea/
+logs
+databases
+verification-bot-api/test.js
+verification-bot-api.txt
+docker-compose.yml
+verification-bot-express/test.js
+tasks.txt

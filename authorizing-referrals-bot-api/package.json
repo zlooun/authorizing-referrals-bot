@@ -1,0 +1,34 @@
+{
+  "name": "authorizing-referrals-bot-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node": "node -v"
+  },
+  "keywords": [],
+  "author": "ZlOun",
+  "license": "ISC",
+  "dependencies": {
+    "@ivaniuk/telegraf-session-redis": "^2.1.0",
+    "@types/redis": "^2.8.22",
+    "axios": "^0.20.0",
+    "debug": "^4.1.1",
+    "htmlspecialchars": "^1.0.5",
+    "ioredis": "^4.17.3",
+    "mongoose": "^5.7.6",
+    "redis": "^3.0.2",
+    "scanf": "^1.1.1",
+    "str-template": "0.0.4",
+    "telegraf": "^3.38.0",
+    "telegraf-i18n": "^6.6.0",
+    "telegraf-inline-menu": "^4.0.1",
+    "telegraf-keyboard": "^1.1.2",
+    "telegraf-session-redis": "^5.1.0",
+    "trim": "0.0.1",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  }
+}

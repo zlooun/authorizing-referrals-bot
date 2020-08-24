@@ -1,0 +1,74 @@
+version: "3.5"
+
+
+
+
+services:
+
+  authorizing-referrals-bot-express:
+    depends_on:
+      - authorizing-referrals-bot-redis
+      - authorizing-referrals-bot-mongo
+    image: authorizing-referrals-bot-express
+    container_name: authorizing-referrals-bot-express
+    restart: unless-stopped
+    ports:
+      - 127.0.0.216:8081:3000
+    volumes:
+      - D:/Job/Wind/authorizing-referrals-bot/logs:/www/authorizing-referrals-bot-express/logs
+    networks:
+      - authorizing-referrals-bot
+      - authorizing-referrals-bot-api-proxy
+
+
+  authorizing-referrals-bot-api:
+    depends_on:
+      - authorizing-referrals-bot-redis
+      - authorizing-referrals-bot-mongo
+    image: authorizing-referrals-bot-api
+    container_name: authorizing-referrals-bot-api
+    restart: unless-stopped
+    ports:
+      - 127.0.0.216:8080:3000
+    volumes:
+      - D:/Job/Wind/authorizing-referrals-bot/logs:/www/authorizing-referrals-bot-api/logs
+    networks:
+      - authorizing-referrals-bot
+      - authorizing-referrals-bot-api-proxy
+
+
+  authorizing-referrals-bot-redis:
+    image: redis
+    container_name: authorizing-referrals-bot-redis
+    restart: unless-stopped
+    ports:
+      - 127.0.0.216:6379:6379
+    volumes:
+      - D:/Job/Wind/authorizing-referrals-bot/databases/redis:/data
+    networks:
+      - authorizing-referrals-bot-api-proxy
+      - authorizing-referrals-bot
+
+
+  authorizing-referrals-bot-mongo:
+    image: mongo
+    container_name: authorizing-referrals-bot-mongo
+    restart: unless-stopped
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=****
+#      - MONGO_INITDB_ROOT_PASSWORD=****
+    ports:
+      - 127.0.0.216:27017:27017
+    volumes:
+      - D:/Job/Wind/authorizing-referrals-bot/databases/mongo:/data/db
+    networks:
+      - authorizing-referrals-bot-api-proxy
+      - authorizing-referrals-bot
+
+
+networks:
+  authorizing-referrals-bot:
+    driver: bridge
+    authorizing-referrals-bot-api-proxy:
+    external:
+      name: authorizing-referrals-bot-api-proxy
