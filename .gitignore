@@ -10,3 +10,4 @@ verification-bot-api.txt
 docker-compose.yml
 verification-bot-express/test.js
 tasks.txt
+node_modules
